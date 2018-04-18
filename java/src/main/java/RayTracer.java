@@ -2,8 +2,16 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+
 public class RayTracer {
 	
+	public static vec3 color(ray r) {
+		vec3 unitDirection = new vec3();
+		unitDirection = vec3math.unitVector(r.direction());
+		return unitDirection;
+	}	
+
 	public static void main(String[] args) {
 
 		try {
@@ -18,9 +26,9 @@ public class RayTracer {
 					double r = (double)i / (double)nx;
 					double g = (double)j / (double)ny;
 					double b = 0.2;
-					int ir = (int)(255.99f * r);
-					int ig = (int)(255.99f * g);
-					int ib = (int)(255.99f * b);
+					int ir = (int)(255.99 * r);
+					int ig = (int)(255.99 * g);
+					int ib = (int)(255.99 * b);
 					writer.write(ir + " " + ig + " " + ib + "\n");
 				}			
 			}
